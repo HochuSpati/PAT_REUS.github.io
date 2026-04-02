@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Политика конфиденциальности</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0e0e0f;
+      --border: #2a2a2e;
+      --accent: #FF6B6B;
+      --accent-dim: rgba(255, 107, 107, 0.10);
+      --text-primary: #e8e4dc;
+      --text-secondary: #8a8680;
+      --text-muted: #55524e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: clamp(2.5rem, 7vw, 5rem) clamp(1.25rem, 4vw, 3rem) clamp(1.8rem, 4vw, 3rem);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 2rem;
+    }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+    h1 em { font-style: normal; color: var(--accent); }
+    .hero-date {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      line-height: 1.8;
+      text-align: right;
+    }
+
+    /* ── LAYOUT ── */
+    .layout {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: 185px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar { position: sticky; top: 2rem; }
+    .sidebar-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+    .nav-list { list-style: none; border-left: 1px solid var(--border); }
+    .nav-list li a {
+      display: block;
+      padding: 7px 0 7px 16px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+      border-left: 2px solid transparent;
+      margin-left: -1px;
+      line-height: 1.4;
+    }
+    .nav-list li a:hover { color: var(--accent); border-left-color: var(--accent); }
+
+    /* ── CONTENT ── */
+    .content { min-width: 0; }
+
+    .section {
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    .section:nth-child(1) { animation-delay: 0.04s; }
+    .section:nth-child(2) { animation-delay: 0.10s; }
+    .section:nth-child(3) { animation-delay: 0.16s; }
+    .section:nth-child(4) { animation-delay: 0.22s; }
+    .section:nth-child(5) { animation-delay: 0.28s; }
+    .section:nth-child(6) { animation-delay: 0.34s; }
+    .section:nth-child(7) { animation-delay: 0.40s; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.3rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-num { font-size: 0.7rem; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; flex-shrink: 0; }
+    h2 { font-size: 1.2rem; font-weight: 700; color: var(--text-primary); }
+
+    .clause { margin-bottom: 1.1rem; display: grid; grid-template-columns: 3rem 1fr; gap: 0.5rem; }
+    .clause-num { font-size: 0.74rem; font-weight: 600; color: var(--text-muted); padding-top: 0.22rem; }
+    .clause-text { font-size: 1rem; font-weight: 400; line-height: 1.8; color: var(--text-secondary); }
+
+    .clause-list { list-style: none; margin-top: 0.85rem; display: flex; flex-direction: column; gap: 0.45rem; }
+    .clause-list li {
+      font-size: 0.96rem; font-weight: 400; color: var(--text-secondary);
+      line-height: 1.7; padding: 0.6rem 1rem;
+      background: var(--accent-dim); border-left: 2px solid var(--accent);
+      display: flex; gap: 0.7rem; align-items: flex-start;
+    }
+    .clause-list li::before { content: '—'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+    .warning-box {
+      margin-top: 1rem;
+      border: 1px solid rgba(255, 107, 107, 0.25);
+      background: rgba(255, 107, 107, 0.05);
+      padding: 1rem 1.2rem;
+      display: flex; gap: 0.8rem; align-items: flex-start;
+    }
+    .warning-icon { color: var(--accent); font-size: 0.9rem; flex-shrink: 0; padding-top: 0.1rem; }
+    .warning-text { font-size: 0.93rem; font-weight: 400; color: #c47070; line-height: 1.7; }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 1.8rem clamp(1.25rem, 4vw, 3rem);
+      margin-top: 1rem;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .footer-text { font-size: 0.76rem; font-weight: 500; color: var(--text-muted); }
+
+    /* ── TABLET ── */
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 155px 1fr; gap: 1.5rem; }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 680px) {
+      .doc-nav { padding: 0 1.25rem; }
+      .doc-select-btn { font-size: 1.05rem; padding: 1rem 0; min-height: 54px; }
+      .doc-dropdown-item { font-size: 1.05rem; padding: 1.1rem 1.25rem; min-height: 54px; }
+
+      .hero { padding: 2.2rem 1.25rem 1.8rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 1rem; }
+      .hero-date { text-align: left; font-size: 0.9rem; }
+      h1 { font-size: 2.1rem; line-height: 1.15; }
+
+      .layout { grid-template-columns: 1fr; padding: 1.75rem 1.25rem 2rem; gap: 0; }
+      .sidebar { display: none; }
+
+      .section { margin-bottom: 2.5rem; }
+      .section-header { margin-bottom: 1.2rem; padding-bottom: 0.85rem; }
+      .section-num { font-size: 0.85rem; }
+      h2 { font-size: 1.25rem; }
+
+      .clause { grid-template-columns: 3rem 1fr; gap: 0.4rem; margin-bottom: 1.3rem; }
+      .clause-num { font-size: 0.85rem; }
+      .clause-text { font-size: 1.05rem; line-height: 1.8; }
+
+      .clause-list { gap: 0.55rem; margin-top: 1rem; }
+      .clause-list li { font-size: 1rem; padding: 0.75rem 1rem; }
+
+      .warning-box { padding: 1rem 1.1rem; }
+      .warning-text { font-size: 1rem; }
+
+      footer { padding: 1.6rem 1.25rem; }
+      .footer-inner { flex-direction: column; gap: 0.4rem; align-items: flex-start; }
+      .footer-text { font-size: 0.88rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav style="position:relative;z-index:10;border-bottom:1px solid var(--border);padding:0 clamp(1.25rem,4vw,3rem);background:var(--bg);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <span style="display:inline-block;font-size:1rem;font-weight:700;color:var(--accent);padding:1rem 0;">Политика конфиденциальности</span>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Политика<br><em>конфиденциальности</em></h1>
+    <div class="hero-date">Вступает в силу<br>при использовании REUSchedule</div>
+  </div>
+</section>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Содержание</div>
+    <ul class="nav-list">
+      <li><a href="#s1">1. Общие положения</a></li>
+      <li><a href="#s2">2. Сбор информации</a></li>
+      <li><a href="#s3">3. Использование информации</a></li>
+      <li><a href="#s4">4. Передача третьим лицам</a></li>
+      <li><a href="#s5">5. Хранение и защита</a></li>
+      <li><a href="#s6">6. Отказ от ответственности</a></li>
+      <li><a href="#s7">7. Изменения в Политике</a></li>
+    </ul>
+  </aside>
+  <main class="content">
+
+    <div class="section" id="s1">
+      <div class="section-header"><span class="section-num">§ 01</span><h2>Общие положения</h2></div>
+      <div class="clause"><span class="clause-num">1.1</span><p class="clause-text">Настоящая Политика конфиденциальности (далее — «Политика») регулирует порядок обработки и защиты информации, которую Пользователь передаёт при использовании сервиса (далее — «Сервис»).</p></div>
+      <div class="clause"><span class="clause-num">1.2</span><p class="clause-text">Используя Сервис, Пользователь подтверждает своё согласие с условиями Политики. Если Пользователь не согласен с условиями — он обязан прекратить использование Сервиса.</p></div>
+    </div>
+
+    <div class="section" id="s2">
+      <div class="section-header"><span class="section-num">§ 02</span><h2>Сбор информации</h2></div>
+      <div class="clause">
+        <span class="clause-num">2.1</span>
+        <div>
+          <p class="clause-text">Сервис может собирать следующие типы данных:</p>
+          <ul class="clause-list">
+            <li>идентификаторы аккаунта (логин, ID, никнейм и т.п.)</li>
+            <li>техническую информацию (IP-адрес, данные о браузере, устройстве и операционной системе)</li>
+            <li>историю взаимодействий с Сервисом</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clause"><span class="clause-num">2.2</span><p class="clause-text">Сервис не требует от Пользователя предоставления паспортных данных, документов, фотографий или другой личной информации, кроме минимально необходимой для работы.</p></div>
+    </div>
+
+    <div class="section" id="s3">
+      <div class="section-header"><span class="section-num">§ 03</span><h2>Использование информации</h2></div>
+      <div class="clause">
+        <span class="clause-num">3.1</span>
+        <div>
+          <p class="clause-text">Сервис может использовать полученную информацию исключительно для:</p>
+          <ul class="clause-list">
+            <li>обеспечения работы функционала</li>
+            <li>связи с Пользователем (в том числе для уведомлений и поддержки)</li>
+            <li>анализа и улучшения работы Сервиса</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="s4">
+      <div class="section-header"><span class="section-num">§ 04</span><h2>Передача информации третьим лицам</h2></div>
+      <div class="clause">
+        <span class="clause-num">4.1</span>
+        <div>
+          <p class="clause-text">Администрация не передаёт полученные данные третьим лицам, за исключением случаев:</p>
+          <ul class="clause-list">
+            <li>если это требуется по закону</li>
+            <li>если это необходимо для исполнения обязательств перед Пользователем (например, при работе с платёжными системами)</li>
+            <li>если Пользователь сам дал на это согласие</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="s5">
+      <div class="section-header"><span class="section-num">§ 05</span><h2>Хранение и защита данных</h2></div>
+      <div class="clause"><span class="clause-num">5.1</span><p class="clause-text">Данные хранятся в течение срока, необходимого для достижения целей обработки.</p></div>
+      <div class="clause"><span class="clause-num">5.2</span><p class="clause-text">Администрация принимает разумные меры для защиты данных, но не гарантирует абсолютную безопасность информации при передаче через интернет.</p></div>
+    </div>
+
+    <div class="section" id="s6">
+      <div class="section-header"><span class="section-num">§ 06</span><h2>Отказ от ответственности</h2></div>
+      <div class="clause"><span class="clause-num">6.1</span><p class="clause-text">Пользователь понимает и соглашается, что передача информации через интернет всегда сопряжена с рисками.</p></div>
+      <div class="clause">
+        <span class="clause-num">6.2</span>
+        <div>
+          <p class="clause-text">Администрация не несёт ответственности за утрату, кражу или раскрытие данных, если это произошло по вине третьих лиц или самого Пользователя.</p>
+          <div class="warning-box">
+            <span class="warning-icon">⚠</span>
+            <span class="warning-text">Передача данных через интернет всегда несёт в себе риски. Пользователь принимает эти условия при использовании REUSchedule.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="s7">
+      <div class="section-header"><span class="section-num">§ 07</span><h2>Изменения в Политике</h2></div>
+      <div class="clause"><span class="clause-num">7.1</span><p class="clause-text">Администрация вправе изменять условия Политики без предварительного уведомления.</p></div>
+      <div class="clause"><span class="clause-num">7.2</span><p class="clause-text">Продолжение использования Сервиса после внесения изменений означает согласие Пользователя с новой редакцией Политики.</p></div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-text">© REUSchedule — Политика конфиденциальности</span>
+    <span class="footer-text">Версия 1.0 · Все права защищены</span>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
